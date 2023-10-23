@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - AppTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>AppTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/io.github.arthurpessoa.html">io.github.arthurpessoa</a> &gt; AppTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">1</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">12.039s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">should run in a spark container()</td>
+<td class="success">12.039s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>ListBucketsResponse(Buckets=[Bucket(Name=balde, CreationDate=2023-10-23T12:07:34Z)], Owner=Owner(DisplayName=webfile, ID=75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a))
+ListObjectsResponse(IsTruncated=false, Marker=, Contents=[S3Object(Key=file2-00000-of-00001.csv, LastModified=2023-10-23T12:07:38Z, ETag=&quot;a5a59e67958c9cd84f3f4c8e0b9fbfcb&quot;, Size=16, StorageClass=STANDARD, Owner=Owner(DisplayName=webfile, ID=75aa57f09aa0c8caeab4f8c24e99d10f8e7faeebf76c078efc7c6caea54ba06a))], Name=balde, MaxKeys=1000)
+
+23/10/23 12:07:36 INFO SparkRunner: Executing pipeline using the SparkRunner.
+23/10/23 12:07:36 INFO SparkContextFactory: Creating a brand new Spark Context.
+23/10/23 12:07:36 INFO SparkContext: Running Spark version 3.5.0
+23/10/23 12:07:36 INFO SparkContext: OS info Linux, 5.15.133.1-microsoft-standard-WSL2, amd64
+23/10/23 12:07:36 INFO SparkContext: Java version 17.0.8
+23/10/23 12:07:36 INFO ResourceUtils: ==============================================================
+23/10/23 12:07:36 INFO ResourceUtils: No custom resources configured for spark.driver.
+23/10/23 12:07:36 INFO ResourceUtils: ==============================================================
+23/10/23 12:07:36 INFO SparkContext: Submitted application: PipelineKt
+23/10/23 12:07:36 INFO ResourceProfile: Default ResourceProfile created, executor resources: Map(cores -&gt; name: cores, amount: 1, script: , vendor: , memory -&gt; name: memory, amount: 1024, script: , vendor: , offHeap -&gt; name: offHeap, amount: 0, script: , vendor: ), task resources: Map(cpus -&gt; name: cpus, amount: 1.0)
+23/10/23 12:07:36 INFO ResourceProfile: Limiting resource is cpu
+23/10/23 12:07:36 INFO ResourceProfileManager: Added ResourceProfile id: 0
+23/10/23 12:07:36 INFO SecurityManager: Changing view acls to: spark
+23/10/23 12:07:36 INFO SecurityManager: Changing modify acls to: spark
+23/10/23 12:07:36 INFO SecurityManager: Changing view acls groups to: 
+23/10/23 12:07:36 INFO SecurityManager: Changing modify acls groups to: 
+23/10/23 12:07:36 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: spark; groups with view permissions: EMPTY; users with modify permissions: spark; groups with modify permissions: EMPTY
+23/10/23 12:07:36 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+23/10/23 12:07:36 INFO Utils: Successfully started service 'sparkDriver' on port 38907.
+23/10/23 12:07:36 INFO SparkEnv: Registering MapOutputTracker
+23/10/23 12:07:36 INFO SparkEnv: Registering BlockManagerMaster
+23/10/23 12:07:36 INFO BlockManagerMasterEndpoint: Using org.apache.spark.storage.DefaultTopologyMapper for getting topology information
+23/10/23 12:07:36 INFO BlockManagerMasterEndpoint: BlockManagerMasterEndpoint up
+23/10/23 12:07:36 INFO SparkEnv: Registering BlockManagerMasterHeartbeat
+23/10/23 12:07:36 INFO DiskBlockManager: Created local directory at /tmp/blockmgr-a945e4b2-18e0-437d-82c8-ef58a6cb4cb0
+23/10/23 12:07:36 INFO MemoryStore: MemoryStore started with capacity 434.4 MiB
+23/10/23 12:07:36 INFO SparkEnv: Registering OutputCommitCoordinator
+23/10/23 12:07:36 INFO JettyUtils: Start Jetty 0.0.0.0:4040 for SparkUI
+23/10/23 12:07:36 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+23/10/23 12:07:36 INFO SparkContext: Added JAR file:/home/sample-aggregation-all.jar at spark://6ae5073ea7b8:38907/jars/sample-aggregation-all.jar with timestamp 1698062856601
+23/10/23 12:07:36 INFO Executor: Starting executor ID driver on host 6ae5073ea7b8
+23/10/23 12:07:36 INFO Executor: OS info Linux, 5.15.133.1-microsoft-standard-WSL2, amd64
+23/10/23 12:07:36 INFO Executor: Java version 17.0.8
+23/10/23 12:07:36 INFO Executor: Starting executor with user classpath (userClassPathFirst = false): ''
+23/10/23 12:07:36 INFO Executor: Created or updated repl class loader org.apache.spark.util.MutableURLClassLoader@4bc21e34 for default.
+23/10/23 12:07:36 INFO Executor: Fetching spark://6ae5073ea7b8:38907/jars/sample-aggregation-all.jar with timestamp 1698062856601
+23/10/23 12:07:37 INFO TransportClientFactory: Successfully created connection to 6ae5073ea7b8/172.21.0.2:38907 after 10 ms (0 ms spent in bootstraps)
+23/10/23 12:07:37 INFO Utils: Fetching spark://6ae5073ea7b8:38907/jars/sample-aggregation-all.jar to /tmp/spark-661c09f0-1675-45ab-b6b7-6dbd3eb30487/userFiles-cc895b94-70a8-4fda-9f0e-aa0b2905803b/fetchFileTemp15067677028301493272.tmp
+23/10/23 12:07:37 INFO Executor: Adding file:/tmp/spark-661c09f0-1675-45ab-b6b7-6dbd3eb30487/userFiles-cc895b94-70a8-4fda-9f0e-aa0b2905803b/sample-aggregation-all.jar to class loader default
+23/10/23 12:07:37 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 41959.
+23/10/23 12:07:37 INFO NettyBlockTransferService: Server created on 6ae5073ea7b8:41959
+23/10/23 12:07:37 INFO BlockManager: Using org.apache.spark.storage.RandomBlockReplicationPolicy for block replication policy
+23/10/23 12:07:37 INFO BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 6ae5073ea7b8, 41959, None)
+23/10/23 12:07:37 INFO BlockManagerMasterEndpoint: Registering block manager 6ae5073ea7b8:41959 with 434.4 MiB RAM, BlockManagerId(driver, 6ae5073ea7b8, 41959, None)
+23/10/23 12:07:37 INFO BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 6ae5073ea7b8, 41959, None)
+23/10/23 12:07:37 INFO BlockManager: Initialized BlockManager: BlockManagerId(driver, 6ae5073ea7b8, 41959, None)
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Entering directly-translatable composite transform: 'save file/WriteFiles/GatherTempFileResults/Consolidate/Reshuffle'
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Entering directly-translatable composite transform: 'save file/WriteFiles/FinalizeTempFileBundles/Reshuffle.ViaRandomKey/Reshuffle'
+23/10/23 12:07:37 INFO MetricsAccumulator: Instantiated metrics accumulator: MetricQueryResults()
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating Read(CompressedSource)
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@52a7928a
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@2c9306d3
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating Window.Assign
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.io.WriteFiles$WriteUnshardedTempFilesFn@7da1e005
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating GroupByKey
+23/10/23 12:07:37 INFO FileBasedSource: Filepattern /home/file1.csv matched 1 files with total size 18
+23/10/23 12:07:37 INFO FileBasedSource: Splitting filepattern /home/file1.csv into bundles of size 18 took 0 ms and produced 1 files and 1 bundles
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.io.WriteFiles$WriteShardsIntoTempFilesFn@71d55b7e
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.io.WriteFiles$WriteUnshardedBundlesToTempFiles$1@4652c74d
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating Flatten.PCollections
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.Reshuffle$AssignShardFn@6842c101
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Entering directly-translatable composite transform: 'save file/WriteFiles/GatherTempFileResults/Consolidate/Reshuffle'
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating Reshuffle
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@33eb0d4
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@2d4a3e13
+23/10/23 12:07:37 INFO SparkRunner$Evaluator: Evaluating View.CreatePCollectionView
+23/10/23 12:07:37 INFO SparkContext: Starting job: collect at BoundedDataset.java:96
+23/10/23 12:07:37 INFO DAGScheduler: Registering RDD 12 (mapToPair at GroupNonMergingWindowsFunctions.java:273) as input to shuffle 1
+23/10/23 12:07:37 INFO DAGScheduler: Registering RDD 27 (repartition at GroupCombineFunctions.java:191) as input to shuffle 0
+23/10/23 12:07:37 INFO DAGScheduler: Got job 0 (collect at BoundedDataset.java:96) with 2 output partitions
+23/10/23 12:07:37 INFO DAGScheduler: Final stage: ResultStage 2 (collect at BoundedDataset.java:96)
+23/10/23 12:07:37 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 1)
+23/10/23 12:07:37 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 1)
+23/10/23 12:07:37 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[12] at mapToPair at GroupNonMergingWindowsFunctions.java:273), which has no missing parents
+23/10/23 12:07:37 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 27.9 KiB, free 434.4 MiB)
+23/10/23 12:07:37 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 12.0 KiB, free 434.4 MiB)
+23/10/23 12:07:37 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 6ae5073ea7b8:41959 (size: 12.0 KiB, free: 434.4 MiB)
+23/10/23 12:07:37 INFO SparkContext: Created broadcast 0 from broadcast at DAGScheduler.scala:1580
+23/10/23 12:07:37 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[12] at mapToPair at GroupNonMergingWindowsFunctions.java:273) (first 15 tasks are for partitions Vector(0))
+23/10/23 12:07:37 INFO TaskSchedulerImpl: Adding task set 0.0 with 1 tasks resource profile 0
+23/10/23 12:07:37 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0) (6ae5073ea7b8, executor driver, partition 0, PROCESS_LOCAL, 9415 bytes) 
+23/10/23 12:07:37 INFO Executor: Running task 0.0 in stage 0.0 (TID 0)
+23/10/23 12:07:37 INFO WriteFiles: Opening writer 315cec7a-30af-4089-995d-018b40fa5896 for window org.apache.beam.sdk.transforms.windowing.GlobalWindow@1f67761b pane PaneInfo.NO_FIRING destination null
+23/10/23 12:07:38 INFO FileBasedSink$Writer: Successfully wrote temporary file s3://balde/.temp-beam-651c8164-f0af-48bd-942a-c8b6ef11685f/eac283e2315cec7a-30af-4089-995d-018b40fa5896
+23/10/23 12:07:38 INFO MemoryStore: Block rdd_7_0 stored as values in memory (estimated size 600.0 B, free 434.4 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added rdd_7_0 in memory on 6ae5073ea7b8:41959 (size: 600.0 B, free: 434.4 MiB)
+23/10/23 12:07:38 INFO Executor: Finished task 0.0 in stage 0.0 (TID 0). 13653 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 913 ms on 6ae5073ea7b8 (executor driver) (1/1)
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+23/10/23 12:07:38 INFO DAGScheduler: ShuffleMapStage 0 (mapToPair at GroupNonMergingWindowsFunctions.java:273) finished in 0.976 s
+23/10/23 12:07:38 INFO DAGScheduler: looking for newly runnable stages
+23/10/23 12:07:38 INFO DAGScheduler: running: Set()
+23/10/23 12:07:38 INFO DAGScheduler: waiting: Set(ShuffleMapStage 1, ResultStage 2)
+23/10/23 12:07:38 INFO DAGScheduler: failed: Set()
+23/10/23 12:07:38 INFO DAGScheduler: Submitting ShuffleMapStage 1 (MapPartitionsRDD[27] at repartition at GroupCombineFunctions.java:191), which has no missing parents
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 34.9 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 14.9 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 6ae5073ea7b8:41959 (size: 14.9 KiB, free: 434.4 MiB)
+23/10/23 12:07:38 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1580
+23/10/23 12:07:38 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 1 (MapPartitionsRDD[27] at repartition at GroupCombineFunctions.java:191) (first 15 tasks are for partitions Vector(0, 1))
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Adding task set 1.0 with 2 tasks resource profile 0
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1) (6ae5073ea7b8, executor driver, partition 0, PROCESS_LOCAL, 9524 bytes) 
+23/10/23 12:07:38 INFO Executor: Running task 0.0 in stage 1.0 (TID 1)
+23/10/23 12:07:38 INFO BlockManager: Found block rdd_7_0 locally
+23/10/23 12:07:38 INFO Executor: Finished task 0.0 in stage 1.0 (TID 1). 8316 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 1.0 in stage 1.0 (TID 2) (6ae5073ea7b8, executor driver, partition 1, PROCESS_LOCAL, 7716 bytes) 
+23/10/23 12:07:38 INFO Executor: Running task 1.0 in stage 1.0 (TID 2)
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 27 ms on 6ae5073ea7b8 (executor driver) (1/2)
+23/10/23 12:07:38 INFO ShuffleBlockFetcherIterator: Getting 0 (0.0 B) non-empty blocks including 0 (0.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+23/10/23 12:07:38 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 3 ms
+23/10/23 12:07:38 INFO Executor: Finished task 1.0 in stage 1.0 (TID 2). 6848 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 1.0 in stage 1.0 (TID 2) in 26 ms on 6ae5073ea7b8 (executor driver) (2/2)
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+23/10/23 12:07:38 INFO DAGScheduler: ShuffleMapStage 1 (repartition at GroupCombineFunctions.java:191) finished in 0.064 s
+23/10/23 12:07:38 INFO DAGScheduler: looking for newly runnable stages
+23/10/23 12:07:38 INFO DAGScheduler: running: Set()
+23/10/23 12:07:38 INFO DAGScheduler: waiting: Set(ResultStage 2)
+23/10/23 12:07:38 INFO DAGScheduler: failed: Set()
+23/10/23 12:07:38 INFO DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[38] at map at BoundedDataset.java:95), which has no missing parents
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_2 stored as values in memory (estimated size 20.0 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 8.7 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added broadcast_2_piece0 in memory on 6ae5073ea7b8:41959 (size: 8.7 KiB, free: 434.4 MiB)
+23/10/23 12:07:38 INFO SparkContext: Created broadcast 2 from broadcast at DAGScheduler.scala:1580
+23/10/23 12:07:38 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 2 (MapPartitionsRDD[38] at map at BoundedDataset.java:95) (first 15 tasks are for partitions Vector(0, 1))
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Adding task set 2.0 with 2 tasks resource profile 0
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 1.0 in stage 2.0 (TID 3) (6ae5073ea7b8, executor driver, partition 1, NODE_LOCAL, 7894 bytes) 
+23/10/23 12:07:38 INFO Executor: Running task 1.0 in stage 2.0 (TID 3)
+23/10/23 12:07:38 INFO ShuffleBlockFetcherIterator: Getting 1 (276.0 B) non-empty blocks including 1 (276.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+23/10/23 12:07:38 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 1 ms
+23/10/23 12:07:38 INFO MemoryStore: Block rdd_34_1 stored as values in memory (estimated size 496.0 B, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added rdd_34_1 in memory on 6ae5073ea7b8:41959 (size: 496.0 B, free: 434.4 MiB)
+23/10/23 12:07:38 INFO Executor: Finished task 1.0 in stage 2.0 (TID 3). 8981 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 0.0 in stage 2.0 (TID 4) (6ae5073ea7b8, executor driver, partition 0, PROCESS_LOCAL, 7894 bytes) 
+23/10/23 12:07:38 INFO Executor: Running task 0.0 in stage 2.0 (TID 4)
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 1.0 in stage 2.0 (TID 3) in 24 ms on 6ae5073ea7b8 (executor driver) (1/2)
+23/10/23 12:07:38 INFO ShuffleBlockFetcherIterator: Getting 0 (0.0 B) non-empty blocks including 0 (0.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+23/10/23 12:07:38 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+23/10/23 12:07:38 INFO MemoryStore: Block rdd_34_0 stored as values in memory (estimated size 16.0 B, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added rdd_34_0 in memory on 6ae5073ea7b8:41959 (size: 16.0 B, free: 434.4 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Removed broadcast_1_piece0 on 6ae5073ea7b8:41959 in memory (size: 14.9 KiB, free: 434.4 MiB)
+23/10/23 12:07:38 INFO Executor: Finished task 0.0 in stage 2.0 (TID 4). 6652 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 0.0 in stage 2.0 (TID 4) in 8 ms on 6ae5073ea7b8 (executor driver) (2/2)
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+23/10/23 12:07:38 INFO DAGScheduler: ResultStage 2 (collect at BoundedDataset.java:96) finished in 0.038 s
+23/10/23 12:07:38 INFO DAGScheduler: Job 0 is finished. Cancelling potential speculative or zombie tasks for this job
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Killing all running tasks in stage 2: Stage finished
+23/10/23 12:07:38 INFO DAGScheduler: Job 0 finished: collect at BoundedDataset.java:96, took 1.121119 s
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating Impulse
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@39652a30
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.Reify$ReifyView$1@27e199ce
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_3 stored as values in memory (estimated size 176.0 B, free 434.3 MiB)
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 198.0 B, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added broadcast_3_piece0 in memory on 6ae5073ea7b8:41959 (size: 198.0 B, free: 434.4 MiB)
+23/10/23 12:07:38 INFO SparkContext: Created broadcast 3 from broadcast at SideInputBroadcast.java:62
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@6ce26986
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@7f0d8eff
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.io.WriteFiles$FinalizeTempFileBundles$FinalizeFn@5b066c33
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.Reshuffle$AssignShardFn@4245bf68
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Entering directly-translatable composite transform: 'save file/WriteFiles/FinalizeTempFileBundles/Reshuffle.ViaRandomKey/Reshuffle'
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating Reshuffle
+23/10/23 12:07:38 INFO SparkRunner$Evaluator: Evaluating org.apache.beam.sdk.transforms.MapElements$2@73bb573d
+23/10/23 12:07:38 INFO SparkContext: Starting job: foreach at BoundedDataset.java:127
+23/10/23 12:07:38 INFO DAGScheduler: Got job 1 (foreach at BoundedDataset.java:127) with 2 output partitions
+23/10/23 12:07:38 INFO DAGScheduler: Final stage: ResultStage 5 (foreach at BoundedDataset.java:127)
+23/10/23 12:07:38 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 4)
+23/10/23 12:07:38 INFO DAGScheduler: Missing parents: List()
+23/10/23 12:07:38 INFO DAGScheduler: Submitting ResultStage 5 (save file/WriteFiles/GatherTempFileResults/View.AsIterable/MapElements/Map/ParMultiDo(Anonymous).output MapPartitionsRDD[37] at values at TransformTranslator.java:472), which has no missing parents
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_4 stored as values in memory (estimated size 21.2 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 9.1 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added broadcast_4_piece0 in memory on 6ae5073ea7b8:41959 (size: 9.1 KiB, free: 434.4 MiB)
+23/10/23 12:07:38 INFO SparkContext: Created broadcast 4 from broadcast at DAGScheduler.scala:1580
+23/10/23 12:07:38 INFO DAGScheduler: Submitting 2 missing tasks from ResultStage 5 (save file/WriteFiles/GatherTempFileResults/View.AsIterable/MapElements/Map/ParMultiDo(Anonymous).output MapPartitionsRDD[37] at values at TransformTranslator.java:472) (first 15 tasks are for partitions Vector(0, 1))
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Adding task set 5.0 with 2 tasks resource profile 0
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 0.0 in stage 5.0 (TID 5) (6ae5073ea7b8, executor driver, partition 0, PROCESS_LOCAL, 7894 bytes) 
+23/10/23 12:07:38 INFO Executor: Running task 0.0 in stage 5.0 (TID 5)
+23/10/23 12:07:38 INFO BlockManager: Found block rdd_34_0 locally
+23/10/23 12:07:38 INFO Executor: Finished task 0.0 in stage 5.0 (TID 5). 5921 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 1.0 in stage 5.0 (TID 6) (6ae5073ea7b8, executor driver, partition 1, PROCESS_LOCAL, 7894 bytes) 
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 0.0 in stage 5.0 (TID 5) in 7 ms on 6ae5073ea7b8 (executor driver) (1/2)
+23/10/23 12:07:38 INFO Executor: Running task 1.0 in stage 5.0 (TID 6)
+23/10/23 12:07:38 INFO BlockManager: Found block rdd_34_1 locally
+23/10/23 12:07:38 INFO BlockManagerInfo: Removed broadcast_2_piece0 on 6ae5073ea7b8:41959 in memory (size: 8.7 KiB, free: 434.4 MiB)
+23/10/23 12:07:38 INFO Executor: Finished task 1.0 in stage 5.0 (TID 6). 8160 bytes result sent to driver
+23/10/23 12:07:38 INFO TaskSetManager: Finished task 1.0 in stage 5.0 (TID 6) in 7 ms on 6ae5073ea7b8 (executor driver) (2/2)
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Removed TaskSet 5.0, whose tasks have all completed, from pool 
+23/10/23 12:07:38 INFO DAGScheduler: ResultStage 5 (foreach at BoundedDataset.java:127) finished in 0.020 s
+23/10/23 12:07:38 INFO DAGScheduler: Job 1 is finished. Cancelling potential speculative or zombie tasks for this job
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Killing all running tasks in stage 5: Stage finished
+23/10/23 12:07:38 INFO DAGScheduler: Job 1 finished: foreach at BoundedDataset.java:127, took 0.024978 s
+23/10/23 12:07:38 INFO SparkContext: Starting job: foreach at BoundedDataset.java:127
+23/10/23 12:07:38 INFO DAGScheduler: Registering RDD 60 (repartition at GroupCombineFunctions.java:191) as input to shuffle 2
+23/10/23 12:07:38 INFO DAGScheduler: Got job 2 (foreach at BoundedDataset.java:127) with 1 output partitions
+23/10/23 12:07:38 INFO DAGScheduler: Final stage: ResultStage 7 (foreach at BoundedDataset.java:127)
+23/10/23 12:07:38 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 6)
+23/10/23 12:07:38 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 6)
+23/10/23 12:07:38 INFO DAGScheduler: Submitting ShuffleMapStage 6 (MapPartitionsRDD[60] at repartition at GroupCombineFunctions.java:191), which has no missing parents
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_5 stored as values in memory (estimated size 30.5 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 12.5 KiB, free 434.3 MiB)
+23/10/23 12:07:38 INFO BlockManagerInfo: Added broadcast_5_piece0 in memory on 6ae5073ea7b8:41959 (size: 12.5 KiB, free: 434.4 MiB)
+23/10/23 12:07:38 INFO SparkContext: Created broadcast 5 from broadcast at DAGScheduler.scala:1580
+23/10/23 12:07:38 INFO DAGScheduler: Submitting 1 missing tasks from ShuffleMapStage 6 (MapPartitionsRDD[60] at repartition at GroupCombineFunctions.java:191) (first 15 tasks are for partitions Vector(0))
+23/10/23 12:07:38 INFO TaskSchedulerImpl: Adding task set 6.0 with 1 tasks resource profile 0
+23/10/23 12:07:38 INFO TaskSetManager: Starting task 0.0 in stage 6.0 (TID 7) (6ae5073ea7b8, executor driver, partition 0, PROCESS_LOCAL, 7796 bytes) 
+23/10/23 12:07:38 INFO Executor: Running task 0.0 in stage 6.0 (TID 7)
+23/10/23 12:07:38 INFO WriteFiles: Finalizing 1 file results
+23/10/23 12:07:38 INFO FileBasedSink: Finalizing for destination null num shards 1.
+23/10/23 12:07:38 INFO FileBasedSink: Will copy temporary file FileResult{tempFilename=s3://balde/.temp-beam-651c8164-f0af-48bd-942a-c8b6ef11685f/eac283e2315cec7a-30af-4089-995d-018b40fa5896, shard=0, window=org.apache.beam.sdk.transforms.windowing.GlobalWindow@1f67761b, paneInfo=PaneInfo.NO_FIRING} to final location s3://balde/file2-00000-of-00001.csv
+23/10/23 12:07:39 INFO Executor: Finished task 0.0 in stage 6.0 (TID 7). 17702 bytes result sent to driver
+23/10/23 12:07:39 INFO TaskSetManager: Finished task 0.0 in stage 6.0 (TID 7) in 267 ms on 6ae5073ea7b8 (executor driver) (1/1)
+23/10/23 12:07:39 INFO TaskSchedulerImpl: Removed TaskSet 6.0, whose tasks have all completed, from pool 
+23/10/23 12:07:39 INFO DAGScheduler: ShuffleMapStage 6 (repartition at GroupCombineFunctions.java:191) finished in 0.272 s
+23/10/23 12:07:39 INFO DAGScheduler: looking for newly runnable stages
+23/10/23 12:07:39 INFO DAGScheduler: running: Set()
+23/10/23 12:07:39 INFO DAGScheduler: waiting: Set(ResultStage 7)
+23/10/23 12:07:39 INFO DAGScheduler: failed: Set()
+23/10/23 12:07:39 INFO DAGScheduler: Submitting ResultStage 7 (save file/WriteFiles/FinalizeTempFileBundles/Reshuffle.ViaRandomKey/Values/Values/Map/ParMultiDo(Anonymous).output MapPartitionsRDD[67] at values at TransformTranslator.java:472), which has no missing parents
+23/10/23 12:07:39 INFO MemoryStore: Block broadcast_6 stored as values in memory (estimated size 19.9 KiB, free 434.3 MiB)
+23/10/23 12:07:39 INFO MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 8.6 KiB, free 434.3 MiB)
+23/10/23 12:07:39 INFO BlockManagerInfo: Added broadcast_6_piece0 in memory on 6ae5073ea7b8:41959 (size: 8.6 KiB, free: 434.4 MiB)
+23/10/23 12:07:39 INFO SparkContext: Created broadcast 6 from broadcast at DAGScheduler.scala:1580
+23/10/23 12:07:39 INFO DAGScheduler: Submitting 1 missing tasks from ResultStage 7 (save file/WriteFiles/FinalizeTempFileBundles/Reshuffle.ViaRandomKey/Values/Values/Map/ParMultiDo(Anonymous).output MapPartitionsRDD[67] at values at TransformTranslator.java:472) (first 15 tasks are for partitions Vector(0))
+23/10/23 12:07:39 INFO TaskSchedulerImpl: Adding task set 7.0 with 1 tasks resource profile 0
+23/10/23 12:07:39 INFO TaskSetManager: Starting task 0.0 in stage 7.0 (TID 8) (6ae5073ea7b8, executor driver, partition 0, NODE_LOCAL, 7894 bytes) 
+23/10/23 12:07:39 INFO Executor: Running task 0.0 in stage 7.0 (TID 8)
+23/10/23 12:07:39 INFO ShuffleBlockFetcherIterator: Getting 1 (207.0 B) non-empty blocks including 1 (207.0 B) local and 0 (0.0 B) host-local and 0 (0.0 B) push-merged-local and 0 (0.0 B) remote blocks
+23/10/23 12:07:39 INFO ShuffleBlockFetcherIterator: Started 0 remote fetches in 0 ms
+23/10/23 12:07:39 INFO Executor: Finished task 0.0 in stage 7.0 (TID 8). 8773 bytes result sent to driver
+23/10/23 12:07:39 INFO TaskSetManager: Finished task 0.0 in stage 7.0 (TID 8) in 7 ms on 6ae5073ea7b8 (executor driver) (1/1)
+23/10/23 12:07:39 INFO TaskSchedulerImpl: Removed TaskSet 7.0, whose tasks have all completed, from pool 
+23/10/23 12:07:39 INFO DAGScheduler: ResultStage 7 (foreach at BoundedDataset.java:127) finished in 0.013 s
+23/10/23 12:07:39 INFO DAGScheduler: Job 2 is finished. Cancelling potential speculative or zombie tasks for this job
+23/10/23 12:07:39 INFO TaskSchedulerImpl: Killing all running tasks in stage 7: Stage finished
+23/10/23 12:07:39 INFO DAGScheduler: Job 2 finished: foreach at BoundedDataset.java:127, took 0.292231 s
+23/10/23 12:07:39 INFO SparkRunner: Batch pipeline execution complete.
+23/10/23 12:07:39 INFO SparkContext: SparkContext is stopping with exitCode 0.
+23/10/23 12:07:39 INFO SparkUI: Stopped Spark web UI at http://6ae5073ea7b8:4040
+23/10/23 12:07:39 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+23/10/23 12:07:39 INFO MemoryStore: MemoryStore cleared
+23/10/23 12:07:39 INFO BlockManager: BlockManager stopped
+23/10/23 12:07:39 INFO BlockManagerMaster: BlockManagerMaster stopped
+23/10/23 12:07:39 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+23/10/23 12:07:39 INFO SparkContext: Successfully stopped SparkContext
+23/10/23 12:07:39 INFO ShutdownHookManager: Shutdown hook called
+23/10/23 12:07:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-0908628a-0107-4aff-979a-be5ecd9471d4
+23/10/23 12:07:39 INFO ShutdownHookManager: Deleting directory /tmp/spark-661c09f0-1675-45ab-b6b7-6dbd3eb30487
+
+</pre>
+</span>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>SLF4J: No SLF4J providers were found.
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 8.3</a> at Oct 23, 2023, 9:07:40 AM</p>
+</div>
+</div>
+</body>
+</html>

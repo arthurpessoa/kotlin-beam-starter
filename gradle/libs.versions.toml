@@ -1,0 +1,41 @@
+[versions]
+kotlin = "1.9.10"
+junit = "5.9.2"
+kotlin-junit = "1.8.10"
+testcontainers = "1.18.0"
+apache-beam = "2.51.0"
+kafka = "3.4.0"
+awaitility = "4.2.0"
+shadow = "8.1.1"
+
+[libraries]
+junit = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
+kotlin-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin-junit" }
+
+testcontainers-kafka = { group = "org.testcontainers", name = "kafka", version.ref = "testcontainers" }
+testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
+testcontainers-cassandra = { group = "org.testcontainers", name = "cassandra", version.ref = "testcontainers" }
+testcontainers-oracle-xe = { group = "org.testcontainers", name = "oracle-xe", version.ref = "testcontainers" }
+testcontainers-localstack = { group = "org.testcontainers", name = "localstack", version.ref = "testcontainers" }
+
+awaitility = { group = "org.awaitility", name = "awaitility", version.ref = "awaitility" }
+awaitility-kotlin = { group = "org.awaitility", name = "awaitility-kotlin", version.ref = "awaitility" }
+
+apache-beam-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
+apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
+apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
+apache-beam-runners-direct-java = { group = "org.apache.beam", name = "beam-runners-direct-java", version.ref = "apache-beam" }
+apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
+
+
+kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "kafka" }
+kafka = { group = "org.apache.kafka", name = "kafka_2.13", version.ref = "kafka" }
+
+
+[bundles]
+awaitility = ["awaitility-kotlin", "awaitility"]
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
