@@ -32,3 +32,7 @@ fun writeResultFile(filenamePrefix: String): TextIO.Write =
         .to(filenamePrefix)
         .withSuffix(".csv")
         .withCompression(Compression.GZIP)
+/*
+ * TODO: Dá pra fazer um nome custom do arquivo output, pra não haver a necessidade de mover o arquivo depois
+ * https://stackoverflow.com/questions/46638425/does-apache-beam-support-custom-file-names-for-its-output
+ */

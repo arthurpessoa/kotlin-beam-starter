@@ -1,6 +1,9 @@
 package io.github.arthurpessoa
 
+
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.testcontainers.containers.GenericContainer
 import org.testcontainers.containers.Network
 import org.testcontainers.containers.localstack.LocalStackContainer
@@ -9,11 +12,11 @@ import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.utility.DockerImageName
 import org.testcontainers.utility.MountableFile.forHostPath
-import software.amazon.awssdk.services.s3.model.ListObjectsRequest
+import software.amazon.awssdk.services.s3.S3Client
 import kotlin.test.Test
 
 @Testcontainers
-class SparkRunnerTest {
+class SparkSubmitIntegrationTest {
 
     private val network: Network = Network.newNetwork()
 
@@ -25,21 +28,16 @@ class SparkRunnerTest {
 
     @Container
     var sparkContainer = GenericContainer(DockerImageName.parse("bitnami/spark:3.5.0"))
-        .withCopyFileToContainer(forHostPath("build/resources/test/.", 484), "/home/")
         .withCopyFileToContainer(forHostPath("build/libs/.", 365), "/home/")
         .withNetwork(network)
 
+    lateinit var s3Client: S3Client
 
     @Test
     fun `should run in a spark container`() {
 
-        val s3Client = localStack
-            .s3ClientBuilder()
-            .build()
 
-        s3Client.createBucket("balde")
-
-        println(s3Client.listBuckets())
+        s3Client.uploadFile(bucketName, "input/file1.csv", "src/test/resources/file1.csv")
 
         val result = sparkContainer.execInContainer(
             "spark-submit",
@@ -52,10 +50,25 @@ class SparkRunnerTest {
             """--awsCredentialsProvider={"@type": "StaticCredentialsProvider", "accessKeyId":"${localStack.accessKey}", "secretAccessKey":"${localStack.secretKey}"}""",
         )
 
-        println(s3Client.listObjects(ListObjectsRequest.builder().bucket("balde").build()))
         println(result.stdout)
         println(result.stderr)
 
-        assertEquals(0, result.exitCode);
+        assertEquals(0, result.exitCode)
+    }
+
+    @BeforeEach
+    fun beforeEach() {
+        s3Client = localStack.s3ClientBuilder().build()
+        s3Client.createBucket(bucketName)
+    }
+
+    @AfterEach
+    fun afterEach() {
+        s3Client.deleteAllObjects(bucketName)
+        s3Client.deleteBucket(bucketName)
+    }
+
+    companion object {
+        const val bucketName = "mybucket"
     }
 }
