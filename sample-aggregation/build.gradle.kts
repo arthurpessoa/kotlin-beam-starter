@@ -25,7 +25,7 @@ dependencies {
     testApi(libs.testcontainers.oracle.xe)
 
     //LocalStack
-    testApi(libs.testcontainers.localstack)
+    testFixturesApi(libs.testcontainers.localstack)
 
 
     testApi(libs.testcontainers.junit.jupiter)
