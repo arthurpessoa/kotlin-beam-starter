@@ -26,5 +26,5 @@ fun main(args: Array<String>) {
 fun Pipeline.catchPokemon() = this
     .apply("Read CSV1", readInitialFile("/home/file1.csv")).apply("Convert to Pokemon", convertToPokemon())
     .apply("Convert Pokemon to String", convertToString())
-    .apply("save file", writeResultFile("s3://balde/file2").withSuffix(".csv"))
+    .apply("save file", writeResultFile("s3://balde/file2"))
 

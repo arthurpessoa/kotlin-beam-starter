@@ -1,5 +1,6 @@
 package io.github.arthurpessoa
 
+import org.apache.beam.sdk.io.Compression
 import org.apache.beam.sdk.io.TextIO
 import org.apache.beam.sdk.transforms.MapElements
 import org.apache.beam.sdk.values.TypeDescriptor
@@ -29,3 +30,5 @@ fun writeResultFile(filenamePrefix: String): TextIO.Write =
     TextIO
         .write()
         .to(filenamePrefix)
+        .withSuffix(".csv")
+        .withCompression(Compression.GZIP)
