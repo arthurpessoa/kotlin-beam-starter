@@ -26,6 +26,7 @@ dependencies {
 
     //LocalStack
     testFixturesApi(libs.testcontainers.localstack)
+    testFixturesApi(libs.testcontainers.kafka)
 
 
     testApi(libs.testcontainers.junit.jupiter)

@@ -5,12 +5,14 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.testcontainers.containers.GenericContainer
+import org.testcontainers.containers.KafkaContainer
 import org.testcontainers.containers.Network
 import org.testcontainers.containers.localstack.LocalStackContainer
 import org.testcontainers.containers.localstack.LocalStackContainer.Service.S3
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.utility.DockerImageName
+import org.testcontainers.utility.DockerImageName.parse
 import org.testcontainers.utility.MountableFile.forHostPath
 import software.amazon.awssdk.services.s3.S3Client
 import kotlin.test.Test
@@ -21,15 +23,20 @@ class SparkSubmitIntegrationTest {
     private val network: Network = Network.newNetwork()
 
     @Container
-    var localStack = LocalStackContainer(DockerImageName.parse("localstack/localstack:2.3.2"))
+    val localStack: LocalStackContainer = LocalStackContainer(parse("localstack/localstack:2.3.2"))
         .withNetwork(network)
         .withNetworkAliases("localstack")
         .withServices(S3)
 
     @Container
-    var sparkContainer = GenericContainer(DockerImageName.parse("bitnami/spark:3.5.0"))
+    val sparkContainer: GenericContainer<*> = GenericContainer(parse("bitnami/spark:3.5.0"))
         .withCopyFileToContainer(forHostPath("build/libs/.", 365), "/home/")
         .withNetwork(network)
+
+    @Container
+    val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
+        .withNetwork(network)
+
 
     lateinit var s3Client: S3Client
 
