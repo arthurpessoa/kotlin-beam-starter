@@ -39,15 +39,15 @@ This project have a few files:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/arthurpessoa/kotlin-beam-starter.svg
 [contributors-url]: https://github.com/arthurpessoa/kotlin-beam-starter/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/arthurpessoa/kotlin-beam-starter.svg
 [forks-url]: https://github.com/arthurpessoa/kotlin-beam-starter/network/members
-[stars-shield]: https://img.shields.io/github/stars/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/arthurpessoa/kotlin-beam-starter.svg
 [stars-url]: https://github.com/arthurpessoa/kotlin-beam-starter/stargazers
-[issues-shield]: https://img.shields.io/github/issues/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/arthurpessoa/kotlin-beam-starter.svg
 [issues-url]: https://github.com/arthurpessoa/kotlin-beam-starter/issues
-[license-shield]: https://img.shields.io/github/license/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/arthurpessoa/kotlin-beam-starter.svg
 [license-url]: https://github.com/arthurpessoa/kotlin-beam-starter/blob/master/LICENSE.MD
 [Kotlin]: https://img.shields.io/badge/Kotlin-grey?style=for-the-badge&logo=kotlin
 [Kotlin-url]: https://kotlinlang.org/
