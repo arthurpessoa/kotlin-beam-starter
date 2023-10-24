@@ -41,7 +41,7 @@ This project have a few files:
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
 [contributors-url]: https://github.com/arthurpessoa/kotlin-beam-starter/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/arthurpessoa/kotlin-beam-starter.svg
 [forks-url]: https://github.com/arthurpessoa/kotlin-beam-starter/network/members
 [stars-shield]: https://img.shields.io/github/stars/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
 [stars-url]: https://github.com/arthurpessoa/kotlin-beam-starter/stargazers
