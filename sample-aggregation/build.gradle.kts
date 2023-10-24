@@ -73,6 +73,7 @@ val integrationTest = task<Test>("integrationTest") {
     testClassesDirs = sourceSets["integrationTest"].output.classesDirs
     classpath = sourceSets["integrationTest"].runtimeClasspath
     mustRunAfter(tasks["test"])
+    useJUnitPlatform()
 }
 
 tasks.check {
