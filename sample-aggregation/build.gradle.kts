@@ -1,6 +1,5 @@
 import com.adarshr.gradle.testlogger.theme.ThemeType
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 
 plugins {
     `java-test-fixtures`
