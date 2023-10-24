@@ -1,10 +1,10 @@
-# kotlin-beam-starter
-
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+
+# kotlin-beam-starter
 
 If you want to clone this repository to start your own project, you can choose the license you prefer and feel free to delete anything related to the license you are dropping.
 
