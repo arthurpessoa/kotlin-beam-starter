@@ -48,7 +48,7 @@ This project have a few files:
 [issues-shield]: https://img.shields.io/github/issues/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
 [issues-url]: https://github.com/arthurpessoa/kotlin-beam-starter/issues
 [license-shield]: https://img.shields.io/github/license/arthurpessoa/kotlin-beam-starter.svg?style=for-the-badge
-[license-url]: https://github.com/arthurpessoa/kotlin-beam-starter/blob/master/LICENSE.txt
+[license-url]: https://github.com/arthurpessoa/kotlin-beam-starter/blob/master/LICENSE.MD
 [Kotlin]: https://img.shields.io/badge/Kotlin-grey?style=for-the-badge&logo=kotlin
 [Kotlin-url]: https://kotlinlang.org/
 [ApacheBeam]: https://img.shields.io/badge/Apache%20Beam-grey?style=for-the-badge&logo=Apache
