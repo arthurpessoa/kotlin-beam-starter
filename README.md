@@ -40,6 +40,15 @@ This project have a few files:
 > For a comparison of what each runner currently supports, look at the Beam [Capability Matrix](https://beam.apache.org/documentation/runners/capability-matrix/).
 > To add a new runner, visit the runner's page for instructions on how to include it.
 
+
+## Contributing
+Thank you for your interest in contributing! All contributions are welcome! 🎉🎊
+
+## License
+This software is distributed under the terms of both the MIT license and the Apache License (Version 2.0).
+
+See [LICENSE](LICENSE.MD) for details.
+
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/arthurpessoa/kotlin-beam-starter.svg
