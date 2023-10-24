@@ -12,18 +12,19 @@ fun readInitialFile(filePattern: String): TextIO.Read =
         .read()
         .from(filePattern)
 
-fun convertToPokemon(): MapElements<String, Pokemon> =
+fun convertToSchema(): MapElements<String, MySchema> =
     MapElements
-        .into(TypeDescriptor.of(Pokemon::class.java))
-        .via(func { name: String ->
-            Pokemon(name)
+        .into(TypeDescriptor.of(MySchema::class.java))
+        .via(func { line: String ->
+            val (id, name) = line.split(",", ignoreCase = true)
+            MySchema(id.toLong(), name)
         })
 
-fun convertToString(): MapElements<Pokemon, String> =
+fun convertToString(): MapElements<MySchema, String> =
     MapElements
         .into(TypeDescriptors.strings())
-        .via(func { pokemon: Pokemon ->
-            pokemon.name
+        .via(func { mySchema: MySchema ->
+            mySchema.name
         })
 
 fun writeResultFile(filenamePrefix: String): TextIO.Write =

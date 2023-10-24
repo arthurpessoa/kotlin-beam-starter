@@ -1,8 +1,9 @@
 package io.github.arthurpessoa
 
-import org.apache.beam.sdk.schemas.JavaFieldSchema
-import org.apache.beam.sdk.schemas.annotations.DefaultSchema
+import java.io.Serializable
 
 
-@DefaultSchema(JavaFieldSchema::class)
-data class Pokemon(val name: String)
+data class MySchema(
+    val id: Long,
+    val name: String
+) : Serializable

@@ -12,14 +12,14 @@ fun main(args: Array<String>) {
 
     val pipeline = Pipeline.create(options)
 
-    pipeline.catchPokemon()
+    pipeline.ingest()
 
     pipeline.run().waitUntilFinish()
 }
 
-fun Pipeline.catchPokemon() = this
+fun Pipeline.ingest() = this
     .apply("Read CSV1", readInitialFile("s3://mybucket/input/file1.csv"))
-    .apply("Convert to Pokemon", convertToPokemon())
-    .apply("Convert Pokemon to String", convertToString())
+    .apply("Convert to Schema", convertToSchema())
+    .apply("Convert to String", convertToString())
     .apply("save file", writeResultFile("s3://mybucket/output/file2"))
 

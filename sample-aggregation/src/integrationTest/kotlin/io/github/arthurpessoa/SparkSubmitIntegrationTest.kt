@@ -11,7 +11,6 @@ import org.testcontainers.containers.localstack.LocalStackContainer
 import org.testcontainers.containers.localstack.LocalStackContainer.Service.S3
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
-import org.testcontainers.utility.DockerImageName
 import org.testcontainers.utility.DockerImageName.parse
 import org.testcontainers.utility.MountableFile.forHostPath
 import software.amazon.awssdk.services.s3.S3Client

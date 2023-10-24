@@ -1,41 +1,43 @@
 [versions]
-kotlin = "1.9.10"
-junit = "5.9.2"
-kotlin-junit = "1.8.10"
-testcontainers = "1.18.0"
 apache-beam = "2.51.0"
-kafka = "3.4.0"
 awaitility = "4.2.0"
+aws-sdk = "2.21.5"
+junit = "5.9.2"
+kafka = "3.4.0"
+kotlin = "1.9.10"
+kotlin-junit = "1.8.10"
+logback = "1.4.7"
 shadow = "8.1.1"
+test-logger = "4.0.0"
+testcontainers = "1.18.0"
 
 [libraries]
-junit = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
-kotlin-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin-junit" }
-
-testcontainers-kafka = { group = "org.testcontainers", name = "kafka", version.ref = "testcontainers" }
-testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
-testcontainers-cassandra = { group = "org.testcontainers", name = "cassandra", version.ref = "testcontainers" }
-testcontainers-oracle-xe = { group = "org.testcontainers", name = "oracle-xe", version.ref = "testcontainers" }
-testcontainers-localstack = { group = "org.testcontainers", name = "localstack", version.ref = "testcontainers" }
-
+apache-beam-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
+apache-beam-runners-direct-java = { group = "org.apache.beam", name = "beam-runners-direct-java", version.ref = "apache-beam" }
+apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
+apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
+apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
 awaitility = { group = "org.awaitility", name = "awaitility", version.ref = "awaitility" }
 awaitility-kotlin = { group = "org.awaitility", name = "awaitility-kotlin", version.ref = "awaitility" }
-
-apache-beam-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
-apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
-apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
-apache-beam-runners-direct-java = { group = "org.apache.beam", name = "beam-runners-direct-java", version.ref = "apache-beam" }
-apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
-
-
-kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "kafka" }
+awssdk-s3 = { group = "software.amazon.awssdk", name = "s3", version.ref = "aws-sdk" }
+junit = { group = "org.junit.jupiter", name = "junit-jupiter-engine", version.ref = "junit" }
 kafka = { group = "org.apache.kafka", name = "kafka_2.13", version.ref = "kafka" }
-
+kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "kafka" }
+kotlin-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin-junit" }
+logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
+logback-core = { group = "ch.qos.logback", name = "logback-core", version.ref = "logback" }
+testcontainers-cassandra = { group = "org.testcontainers", name = "cassandra", version.ref = "testcontainers" }
+testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
+testcontainers-kafka = { group = "org.testcontainers", name = "kafka", version.ref = "testcontainers" }
+testcontainers-localstack = { group = "org.testcontainers", name = "localstack", version.ref = "testcontainers" }
+testcontainers-oracle-xe = { group = "org.testcontainers", name = "oracle-xe", version.ref = "testcontainers" }
 
 [bundles]
 awaitility = ["awaitility-kotlin", "awaitility"]
+logback = ["logback-classic", "logback-core"]
 
 [plugins]
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
+test-logger = { id = "com.adarshr.test-logger", version.ref = "test-logger" }
