@@ -17,6 +17,7 @@ import org.testcontainers.utility.MountableFile.forHostPath
 import software.amazon.awssdk.services.s3.S3Client
 import kotlin.test.Test
 
+
 @Testcontainers
 class SparkSubmitIntegrationTest {
 
@@ -25,25 +26,26 @@ class SparkSubmitIntegrationTest {
     @Container
     val localStack: LocalStackContainer = LocalStackContainer(parse("localstack/localstack:2.3.2"))
         .withNetwork(network)
-        .withNetworkAliases("localstack")
+        .withNetworkAliases(LOCALSTACK_NETWORK)
         .withServices(S3)
-
-    @Container
-    val sparkContainer: GenericContainer<*> = GenericContainer(parse("bitnami/spark:3.5.0"))
-        .withCopyFileToContainer(forHostPath("build/libs/.", 365), "/home/")
-        .withNetwork(network)
-
-    @Container
-    val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
-        .withNetwork(network)
 
     @Container
     val oracleContainer: OracleContainer = OracleContainer("gvenzl/oracle-xe:21-slim-faststart")
         .withDatabaseName(DATABASE_NAME)
         .withUsername(DATABASE_USERNAME)
         .withPassword(DATABASE_PASSWORD)
-        .withNetworkAliases("oracle")
+        .withNetworkAliases(ORACLE_NETWORK)
         .withNetwork(network)
+
+    @Container
+    val sparkContainer: GenericContainer<*> = GenericContainer(parse("bitnami/spark:3.5.0"))
+        .withCopyFileToContainer(forHostPath("build/libs/.", 365), "/home/")
+        .withNetwork(network)
+
+/*
+    @Container
+    val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
+        .withNetwork(network)*/
 
     lateinit var s3Client: S3Client
 
@@ -59,8 +61,12 @@ class SparkSubmitIntegrationTest {
             "/home/sample-aggregation-all.jar",
             "--runner=SparkRunner",
             "--awsRegion=${localStack.region}",
-            "--endpoint=http://localstack:4566",
+            "--endpoint=http://$LOCALSTACK_NETWORK:4566",
             """--awsCredentialsProvider={"@type": "StaticCredentialsProvider", "accessKeyId":"${localStack.accessKey}", "secretAccessKey":"${localStack.secretKey}"}""",
+            "--dbName=$DATABASE_NAME",
+            "--dbUsername=$DATABASE_USERNAME",
+            "--dbPassword=$DATABASE_PASSWORD",
+            "--dbUrl=jdbc:oracle:thin:@$ORACLE_NETWORK:${oracleContainer.oraclePort}/$DATABASE_NAME",
         )
 
         println(result.stdout)
@@ -77,7 +83,6 @@ class SparkSubmitIntegrationTest {
         oracleContainer.connection.use {
             it.createStatement().execute(STATEMENT_CREATE_TABLE)
         }
-
     }
 
     @AfterEach
@@ -87,17 +92,23 @@ class SparkSubmitIntegrationTest {
     }
 
     companion object {
+        // S3
         const val BUCKET_NAME = "mybucket"
+        const val LOCALSTACK_NETWORK = "localstack"
+
+        // Database
+        const val ORACLE_NETWORK = "database"
         const val DATABASE_NAME = "db"
         const val DATABASE_USERNAME = "dbuser"
         const val DATABASE_PASSWORD = "dbpw"
         const val STATEMENT_CREATE_TABLE =
             """
-                DROP TABLE IF EXISTS MOVIE_CHARACTER
                 CREATE TABLE MOVIE_CHARACTER (
                     character_id NUMBER PRIMARY KEY,
                     character_name VARCHAR2(50) NOT NULL
                 )
             """
+
     }
+
 }

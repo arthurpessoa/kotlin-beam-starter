@@ -18,6 +18,7 @@ apache-beam-runners-direct-java = { group = "org.apache.beam", name = "beam-runn
 apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
 apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
+apache-beam-sdks-java-io-jdbc = { group = "org.apache.beam", name = "beam-sdks-java-io-jdbc", version.ref = "apache-beam" }
 awaitility = { group = "org.awaitility", name = "awaitility", version.ref = "awaitility" }
 awaitility-kotlin = { group = "org.awaitility", name = "awaitility-kotlin", version.ref = "awaitility" }
 awssdk-s3 = { group = "software.amazon.awssdk", name = "s3", version.ref = "aws-sdk" }

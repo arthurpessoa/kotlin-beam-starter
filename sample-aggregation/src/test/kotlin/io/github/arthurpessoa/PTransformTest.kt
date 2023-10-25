@@ -25,12 +25,12 @@ class PTransformTest {
             ).withCoder(StringUtf8Coder.of())
         )
 
-        val result = characters.apply(convertToSchema())
+        val result = characters.apply(convertToMovieCharacter())
 
         PAssert.that(result).containsInAnyOrder(
-            MySchema(1L, "Luke Skywalker"),
-            MySchema(2L, "Hermione Granger"),
-            MySchema(3L, "Jack Sparrow")
+            MovieCharacter(1L, "Luke Skywalker"),
+            MovieCharacter(2L, "Hermione Granger"),
+            MovieCharacter(3L, "Jack Sparrow")
         )
 
         testPipeline.run()

@@ -2,32 +2,51 @@ package io.github.arthurpessoa
 
 import org.apache.beam.sdk.io.Compression
 import org.apache.beam.sdk.io.TextIO
+import org.apache.beam.sdk.io.jdbc.JdbcIO
 import org.apache.beam.sdk.transforms.MapElements
 import org.apache.beam.sdk.values.TypeDescriptor
 import org.apache.beam.sdk.values.TypeDescriptors
+import java.sql.PreparedStatement
 import org.apache.beam.sdk.transforms.SerializableFunction as func
 
-fun readInitialFile(filePattern: String): TextIO.Read =
+fun readFile(filePattern: String): TextIO.Read =
     TextIO
         .read()
         .from(filePattern)
 
-fun convertToSchema(): MapElements<String, MySchema> =
+fun convertToMovieCharacter(): MapElements<String, MovieCharacter> =
     MapElements
-        .into(TypeDescriptor.of(MySchema::class.java))
+        .into(TypeDescriptor.of(MovieCharacter::class.java))
         .via(func { line: String ->
             val (id, name) = line.split(",", ignoreCase = true)
-            MySchema(id.toLong(), name)
+            MovieCharacter(id.toLong(), name)
         })
 
-fun convertToString(): MapElements<MySchema, String> =
+fun convertFromMovieCharacter(): MapElements<MovieCharacter, String> =
     MapElements
         .into(TypeDescriptors.strings())
-        .via(func { mySchema: MySchema ->
-            mySchema.name
+        .via(func { movieCharacter: MovieCharacter ->
+            movieCharacter.name
         })
 
-fun writeResultFile(filenamePrefix: String): TextIO.Write =
+
+fun writeToDatabase(options: MyOptions) = JdbcIO.write<MovieCharacter>()
+    .withDataSourceConfiguration(
+        JdbcIO.DataSourceConfiguration
+            .create(
+                options.dbDriver,
+                options.dbUrl
+            )
+            .withUsername(options.dbUsername)
+            .withPassword(options.dbPassword)
+    )
+    .withStatement("INSERT into MOVIE_CHARACTER values(?, ?)")
+    .withPreparedStatementSetter { movieCharacter: MovieCharacter, statement: PreparedStatement ->
+        statement.setLong(1, movieCharacter.id)
+        statement.setString(2, movieCharacter.name)
+    }
+
+fun writeFile(filenamePrefix: String): TextIO.Write =
     TextIO
         .write()
         .to(filenamePrefix)

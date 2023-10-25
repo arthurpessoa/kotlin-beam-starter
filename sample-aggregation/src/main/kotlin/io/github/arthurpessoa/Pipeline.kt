@@ -2,21 +2,34 @@ package io.github.arthurpessoa
 
 import org.apache.beam.sdk.Pipeline
 import org.apache.beam.sdk.options.PipelineOptionsFactory
+import org.apache.beam.sdk.values.PCollection
 
 fun main(args: Array<String>) {
 
+    PipelineOptionsFactory.register(MyOptions::class.java)
     val options = PipelineOptionsFactory
         .fromArgs(*args)
         .create()
         .withS3PathStyle()
+        .`as`(MyOptions::class.java)
 
     val pipeline = Pipeline.create(options)
-    pipeline
-        .apply("Read CSV1", readInitialFile("s3://mybucket/input/file1.csv"))
-        .apply("Convert to Schema", convertToSchema())
-        .apply("Convert to String", convertToString())
-        .apply("save file", writeResultFile("s3://mybucket/output/file2"))
+
+    //Read CSV example
+    val movieCharacter: PCollection<MovieCharacter> = pipeline
+        .apply("Read CSV file", readFile("s3://mybucket/input/file1.csv"))
+        .apply("Convert to Schema", convertToMovieCharacter())
+
+    //Save CSV example
+    movieCharacter
+        .apply("Convert to String", convertFromMovieCharacter())
+        .apply("save file", writeFile("s3://mybucket/output/file2"))
+
+    //Save to database Example
+    movieCharacter
+        .apply("Save to database", writeToDatabase(options))
 
     pipeline.run().waitUntilFinish()
 }
+
 

@@ -22,6 +22,7 @@ dependencies {
 
     api(libs.apache.beam.runners.spark)
     api(libs.apache.beam.sdks.java.io.amazon.web.services2)
+    api(libs.apache.beam.sdks.java.io.jdbc)
     api(libs.apache.beam.sdks.java.core)
 
     api(libs.ojdbc11)
@@ -72,12 +73,10 @@ val integrationTest = task<Test>("integrationTest") {
     group = "verification"
     testClassesDirs = sourceSets["integrationTest"].output.classesDirs
     classpath = sourceSets["integrationTest"].runtimeClasspath
-    mustRunAfter(tasks["test"])
+    dependsOn("build")
     useJUnitPlatform()
-}
 
-tasks.check {
-    dependsOn(integrationTest)
+
 }
 
 tasks.named<ShadowJar>("shadowJar") {
