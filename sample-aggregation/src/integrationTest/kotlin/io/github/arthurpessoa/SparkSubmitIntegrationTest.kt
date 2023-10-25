@@ -5,7 +5,6 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.testcontainers.containers.GenericContainer
-import org.testcontainers.containers.KafkaContainer
 import org.testcontainers.containers.Network
 import org.testcontainers.containers.OracleContainer
 import org.testcontainers.containers.localstack.LocalStackContainer
@@ -50,12 +49,14 @@ class SparkSubmitIntegrationTest {
 
     lateinit var s3Client: S3Client
 
+
     @Test
     fun `should run in a spark container`() {
 
         s3Client.uploadFile(BUCKET_NAME, "input/file1.csv", "src/test/resources/file1.csv")
 
-        val result = sparkContainer.execInContainer(
+
+        val array = arrayOf(
             "spark-submit",
             "--class", "io.github.arthurpessoa.PipelineKt",
             "--master", "local",
@@ -67,7 +68,11 @@ class SparkSubmitIntegrationTest {
             "--dbName=$DATABASE_NAME",
             "--dbUsername=$DATABASE_USERNAME",
             "--dbPassword=$DATABASE_PASSWORD",
-            "--dbUrl=jdbc:oracle:thin:@$ORACLE_NETWORK:1521/$DATABASE_NAME",
+            "--dbUrl=jdbc:oracle:thin:@$ORACLE_NETWORK:1521/$DATABASE_NAME"
+        )
+
+        val result = sparkContainer.execInContainer(
+            *array
         )
 
         println(result.stdout)
