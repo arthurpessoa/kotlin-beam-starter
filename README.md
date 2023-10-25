@@ -37,8 +37,10 @@ This project have a few files:
 ## FAQ
 
 ### What examples this starter includes?
-> :white_check_mark: -> Done!
-> :warning: -> TODO
+> :white_check_mark: : Done!
+> :warning: : TODO
+> ____
+> * Apache Spark Runner :white_check_mark:
 > * Read/Write .CSV files :white_check_mark:
 > * AWS S3 integration :white_check_mark:
 > * Kafka integration :warning:
