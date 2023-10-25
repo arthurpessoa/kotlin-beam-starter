@@ -24,10 +24,10 @@ dependencies {
     api(libs.apache.beam.sdks.java.io.amazon.web.services2)
     api(libs.apache.beam.sdks.java.core)
 
-    //Oracle
-    testApi(libs.testcontainers.oracle.xe)
+    api(libs.ojdbc11)
 
-    //LocalStack
+
+    testFixturesApi(libs.testcontainers.oracle.xe)
     testFixturesApi(libs.testcontainers.localstack)
     testFixturesApi(libs.testcontainers.kafka)
 

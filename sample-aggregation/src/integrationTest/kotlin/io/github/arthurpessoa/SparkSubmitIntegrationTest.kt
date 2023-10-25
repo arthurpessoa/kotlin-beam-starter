@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.testcontainers.containers.GenericContainer
 import org.testcontainers.containers.KafkaContainer
 import org.testcontainers.containers.Network
+import org.testcontainers.containers.OracleContainer
 import org.testcontainers.containers.localstack.LocalStackContainer
 import org.testcontainers.containers.localstack.LocalStackContainer.Service.S3
 import org.testcontainers.junit.jupiter.Container
@@ -36,14 +37,20 @@ class SparkSubmitIntegrationTest {
     val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
         .withNetwork(network)
 
+    @Container
+    val oracleContainer: OracleContainer = OracleContainer("gvenzl/oracle-xe:21-slim-faststart")
+        .withDatabaseName(DATABASE_NAME)
+        .withUsername(DATABASE_USERNAME)
+        .withPassword(DATABASE_PASSWORD)
+        .withNetworkAliases("oracle")
+        .withNetwork(network)
 
     lateinit var s3Client: S3Client
 
     @Test
     fun `should run in a spark container`() {
 
-
-        s3Client.uploadFile(bucketName, "input/file1.csv", "src/test/resources/file1.csv")
+        s3Client.uploadFile(BUCKET_NAME, "input/file1.csv", "src/test/resources/file1.csv")
 
         val result = sparkContainer.execInContainer(
             "spark-submit",
@@ -65,16 +72,32 @@ class SparkSubmitIntegrationTest {
     @BeforeEach
     fun beforeEach() {
         s3Client = localStack.s3ClientBuilder().build()
-        s3Client.createBucket(bucketName)
+        s3Client.createBucket(BUCKET_NAME)
+
+        oracleContainer.connection.use {
+            it.createStatement().execute(STATEMENT_CREATE_TABLE)
+        }
+
     }
 
     @AfterEach
     fun afterEach() {
-        s3Client.deleteAllObjects(bucketName)
-        s3Client.deleteBucket(bucketName)
+        s3Client.deleteAllObjects(BUCKET_NAME)
+        s3Client.deleteBucket(BUCKET_NAME)
     }
 
     companion object {
-        const val bucketName = "mybucket"
+        const val BUCKET_NAME = "mybucket"
+        const val DATABASE_NAME = "db"
+        const val DATABASE_USERNAME = "dbuser"
+        const val DATABASE_PASSWORD = "dbpw"
+        const val STATEMENT_CREATE_TABLE =
+            """
+                DROP TABLE IF EXISTS MOVIE_CHARACTER
+                CREATE TABLE MOVIE_CHARACTER (
+                    character_id NUMBER PRIMARY KEY,
+                    character_name VARCHAR2(50) NOT NULL
+                )
+            """
     }
 }

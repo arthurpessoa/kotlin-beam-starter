@@ -35,6 +35,13 @@ This project have a few files:
 * The test `src/integrationTest/kotlin` defines the integration tests
   
 ## FAQ
+
+### What examples this starter includes?
+> * Read/Write .CSV files
+> * AWS S3 integration
+> * Kafka integration
+> * Oracle JDBC Integration
+
 ### How can i use another runner?
 > To keep this template small, it only includes the [Direct Runner](https://beam.apache.org/documentation/runners/direct/) for runtime tests, and [Spark Runner](https://beam.apache.org/documentation/runners/spark/) as a integration test example.
 > For a comparison of what each runner currently supports, look at the Beam [Capability Matrix](https://beam.apache.org/documentation/runners/capability-matrix/).

@@ -35,6 +35,8 @@ replay_pid*
 .idea/**/dictionaries
 .idea/**/shelf
 
+*build/**git
+
 # AWS User-specific
 .idea/**/aws.xml
 

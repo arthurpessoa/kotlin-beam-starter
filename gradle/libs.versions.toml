@@ -10,6 +10,7 @@ logback = "1.4.7"
 shadow = "8.1.1"
 test-logger = "4.0.0"
 testcontainers = "1.18.0"
+ojdbc11 = "23.3.0.23.09"
 
 [libraries]
 apache-beam-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
@@ -31,6 +32,7 @@ testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jup
 testcontainers-kafka = { group = "org.testcontainers", name = "kafka", version.ref = "testcontainers" }
 testcontainers-localstack = { group = "org.testcontainers", name = "localstack", version.ref = "testcontainers" }
 testcontainers-oracle-xe = { group = "org.testcontainers", name = "oracle-xe", version.ref = "testcontainers" }
+ojdbc11 = { group = "com.oracle.database.jdbc", name = "ojdbc11", version.ref = "ojdbc11" }
 
 [bundles]
 awaitility = ["awaitility-kotlin", "awaitility"]
