@@ -41,11 +41,12 @@ class SparkSubmitIntegrationTest {
     val sparkContainer: GenericContainer<*> = GenericContainer(parse("bitnami/spark:3.5.0"))
         .withCopyFileToContainer(forHostPath("build/libs/.", 365), "/home/")
         .withNetwork(network)
+        .dependsOn(oracleContainer, localStack)
 
-/*
-    @Container
-    val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
-        .withNetwork(network)*/
+    /*
+        @Container
+        val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
+            .withNetwork(network)*/
 
     lateinit var s3Client: S3Client
 
@@ -66,7 +67,7 @@ class SparkSubmitIntegrationTest {
             "--dbName=$DATABASE_NAME",
             "--dbUsername=$DATABASE_USERNAME",
             "--dbPassword=$DATABASE_PASSWORD",
-            "--dbUrl=jdbc:oracle:thin:@$ORACLE_NETWORK:${oracleContainer.oraclePort}/$DATABASE_NAME",
+            "--dbUrl=jdbc:oracle:thin:@$ORACLE_NETWORK:1521/$DATABASE_NAME",
         )
 
         println(result.stdout)
