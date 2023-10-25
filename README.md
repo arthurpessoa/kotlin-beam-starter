@@ -37,10 +37,14 @@ This project have a few files:
 ## FAQ
 
 ### What examples this starter includes?
-> * Read/Write .CSV files
-> * AWS S3 integration
-> * Kafka integration
-> * Oracle JDBC Integration
+> :white_check_mark: : Done!
+> :warning: : TODO
+> ____
+> * Apache Spark Runner :white_check_mark:
+> * Read/Write .CSV files :white_check_mark:
+> * AWS S3 integration :white_check_mark:
+> * Kafka integration :warning:
+> * Oracle JDBC Integration :warning:
 
 ### How can i use another runner?
 > To keep this template small, it only includes the [Direct Runner](https://beam.apache.org/documentation/runners/direct/) for runtime tests, and [Spark Runner](https://beam.apache.org/documentation/runners/spark/) as a integration test example.
