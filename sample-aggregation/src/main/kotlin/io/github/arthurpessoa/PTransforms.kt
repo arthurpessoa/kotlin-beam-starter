@@ -37,9 +37,11 @@ fun writeToDatabase(options: MyOptions) = JdbcIO.write<MovieCharacter>()
                 options.dbDriver,
                 options.dbUrl
             )
+            .withMaxConnections(10)
             .withUsername(options.dbUsername)
             .withPassword(options.dbPassword)
     )
+    .withBatchSize(500)
     .withStatement("INSERT into MOVIE_CHARACTER values(?, ?)")
     .withPreparedStatementSetter { movieCharacter: MovieCharacter, statement: PreparedStatement ->
         statement.setLong(1, movieCharacter.id)
