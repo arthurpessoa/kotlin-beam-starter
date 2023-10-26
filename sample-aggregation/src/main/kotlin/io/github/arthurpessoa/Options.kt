@@ -30,6 +30,14 @@ interface MyOptions : PipelineOptions {
     @get:Description("Database Connection Url")
     @get:Default.String("jdbc:oracle:thin:@localhost:1521/db")
     var dbUrl: String
+
+    @get:Description("input file")
+    @get:Default.String("s3://mybucket/input/file1.csv")
+    var inputFile: String
+
+    @get:Description("output file")
+    @get:Default.String("s3://mybucket/output/file2.csv")
+    var outputFile: String
 }
 
 

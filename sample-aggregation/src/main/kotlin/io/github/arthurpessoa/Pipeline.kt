@@ -17,13 +17,13 @@ fun main(args: Array<String>) {
 
     //Read CSV example
     val movieCharacter: PCollection<MovieCharacter> = pipeline
-        .apply("Read CSV file", readFile("s3://mybucket/input/file1.csv"))
+        .apply("Read CSV file", readFile(options.inputFile))
         .apply("Convert to Schema", convertToMovieCharacter())
 
     //Save CSV example
     movieCharacter
         .apply("Convert to String", convertFromMovieCharacter())
-        .apply("save file", writeFile("s3://mybucket/output/file2"))
+        .apply("save file", writeFile(options.outputFile))
 
     //Save to database Example
     movieCharacter
