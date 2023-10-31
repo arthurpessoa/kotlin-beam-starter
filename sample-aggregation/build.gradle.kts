@@ -31,6 +31,8 @@ dependencies {
     testFixturesApi(libs.testcontainers.localstack)
     testFixturesApi(libs.testcontainers.kafka)
 
+    (testFixturesApi(project(":beam-commons")))
+
     testApi(libs.awssdk.s3)
     testApi(libs.testcontainers.junit.jupiter)
     testApi(libs.junit)
@@ -59,8 +61,6 @@ sourceSets {
     }
 }
 
-
-
 tasks.named<Test>("test") {
     useJUnitPlatform()
     dependsOn("shadowJar")
@@ -74,8 +74,6 @@ val integrationTest = task<Test>("integrationTest") {
     classpath = sourceSets["integrationTest"].runtimeClasspath
     dependsOn("build")
     useJUnitPlatform()
-
-
 }
 
 tasks.named<ShadowJar>("shadowJar") {

@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "kotlin-beam-starter"
-include("sample-aggregation")
+include("beam-commons","sample-aggregation")
