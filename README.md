@@ -24,6 +24,7 @@ If you want to clone this repository to start your own project, you can choose t
 ```sh
 ./gradlew clean build
 ```
+
 ### Source file structure
 This project aims to have a multiple-module/pipeline, to achieve that, every pipeline should be something like this [sample-aggregation](/tree/main/sample-aggregation)
 This project have a few files:
@@ -53,6 +54,13 @@ This project have a few files:
 > For a comparison of what each runner currently supports, look at the Beam [Capability Matrix](https://beam.apache.org/documentation/runners/capability-matrix/).
 > To add a new runner, visit the runner's page for instructions on how to include it.
 
+### What X means? (Glossary)
+
+> **Pipeline**: A Pipeline encapsulates your entire data processing task, from start to finish. This includes reading input data, transforming that data, and writing output data. All Beam driver programs must create a Pipeline. When you create the Pipeline, you must also specify the execution options that tell the Pipeline where and how to run.
+
+> **PCollection**: A PCollection represents a distributed data set that your Beam pipeline operates on. The data set can be bounded, meaning it comes from a fixed source like a file, or unbounded, meaning it comes from a continuously updating source via a subscription or other mechanism. Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.
+
+> **PTransform**: A PTransform represents a data processing operation, or a step, in your pipeline. Every PTransform takes one or more PCollection objects as input, performs a processing function that you provide on the elements of that PCollection, and produces zero or more output PCollection objects. 
 
 ## Contributing
 Thank you for your interest in contributing! All contributions are welcome! 🎉🎊
