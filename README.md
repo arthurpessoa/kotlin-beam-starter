@@ -29,8 +29,10 @@ This project aims to have a multiple-module/pipeline, to achieve that, every pip
 This project have a few files:
 
 * The main `/src/main/kotlin`
-  * [Pipeline.kt](https://github.com/arthurpessoa/kotlin-beam-starter/blob/main/sample-aggregation/src/main/kotlin/io/github/arthurpessoa/Pipeline.kt) Defines the main() and the pipeline definition
-  * [PTransforms.kt](https://github.com/arthurpessoa/kotlin-beam-starter/blob/main/sample-aggregation/src/main/kotlin/io/github/arthurpessoa/PTransform.kt) Defines the PTransform functions
+  * [App.kt](https://github.com/arthurpessoa/kotlin-beam-starter/blob/main/sample-aggregation/src/main/kotlin/io/github/arthurpessoa/App.kt) Defines the main() entrypoint
+  * [/schema](https://github.com/arthurpessoa/kotlin-beam-starter/blob/main/sample-aggregation/src/main/kotlin/io/github/arthurpessoa/schema) Contains all schema definitions
+  * [/pipeline](https://github.com/arthurpessoa/kotlin-beam-starter/blob/main/sample-aggregation/src/main/kotlin/io/github/arthurpessoa/pipeline) Contains the pipeline definition
+  * [/ptranform](https://github.com/arthurpessoa/kotlin-beam-starter/blob/main/sample-aggregation/src/main/kotlin/io/github/arthurpessoa/pipeline) Contains all the pipeline transformations (ptransforms)
 * The test `src/test/kotlin` defines the unit tests
 * The test `src/integrationTest/kotlin` defines the integration tests
   
