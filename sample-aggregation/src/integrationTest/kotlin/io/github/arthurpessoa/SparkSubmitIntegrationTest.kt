@@ -60,7 +60,7 @@ class SparkSubmitIntegrationTest {
 
         val array = arrayOf(
             "spark-submit",
-            "--class", "io.github.arthurpessoa.PipelineKt",
+            "--class", "io.github.arthurpessoa.AppKt",
             "--master", "local",
             "/home/sample-aggregation-all.jar",
             "--runner=SparkRunner",

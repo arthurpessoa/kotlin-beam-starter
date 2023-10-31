@@ -1,5 +1,10 @@
 package io.github.arthurpessoa
 
+import io.github.arthurpessoa.ptransform.mapJoinedRowIntoMovieCharacter
+import io.github.arthurpessoa.ptransform.mapStringIntoCharacter
+import io.github.arthurpessoa.ptransform.mapStringIntoMovie
+import io.github.arthurpessoa.schema.Character
+import io.github.arthurpessoa.schema.Movie
 import org.apache.beam.sdk.coders.StringUtf8Coder
 import org.apache.beam.sdk.schemas.transforms.Join
 import org.apache.beam.sdk.testing.PAssert
@@ -7,7 +12,6 @@ import org.apache.beam.sdk.testing.TestPipeline
 import org.apache.beam.sdk.transforms.Create
 import org.apache.beam.sdk.values.PCollection
 import org.junit.jupiter.api.Test
-
 
 class PTransformTest {
 

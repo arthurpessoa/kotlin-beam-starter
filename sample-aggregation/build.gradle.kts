@@ -27,7 +27,6 @@ dependencies {
 
     api(libs.ojdbc11)
 
-
     testFixturesApi(libs.testcontainers.oracle.xe)
     testFixturesApi(libs.testcontainers.localstack)
     testFixturesApi(libs.testcontainers.kafka)

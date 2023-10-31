@@ -1,4 +1,4 @@
-package io.github.arthurpessoa
+package io.github.arthurpessoa.option
 
 import org.apache.beam.sdk.io.aws2.common.ClientBuilderFactory
 import org.apache.beam.sdk.io.aws2.options.S3Options
@@ -6,11 +6,19 @@ import org.apache.beam.sdk.io.aws2.s3.DefaultS3ClientBuilderFactory
 import org.apache.beam.sdk.options.Default
 import org.apache.beam.sdk.options.Description
 import org.apache.beam.sdk.options.PipelineOptions
+import org.apache.beam.sdk.options.PipelineOptionsFactory
 import software.amazon.awssdk.services.s3.S3Client
 import software.amazon.awssdk.services.s3.S3ClientBuilder
 
 
-interface MyOptions : PipelineOptions {
+
+fun buildOptions(args: Array<String>): MovieCharacterOptions {
+    PipelineOptionsFactory.register(MovieCharacterOptions::class.java)
+    return PipelineOptionsFactory.fromArgs(*args).create().withS3PathStyle().`as`(MovieCharacterOptions::class.java)
+}
+
+
+interface MovieCharacterOptions : PipelineOptions {
     @get:Description("Database Name")
     @get:Default.String("db")
     var dbName: String
