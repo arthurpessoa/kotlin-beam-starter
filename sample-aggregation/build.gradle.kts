@@ -32,7 +32,7 @@ dependencies {
     testFixturesApi(libs.testcontainers.localstack)
     testFixturesApi(libs.testcontainers.kafka)
 
-    (testFixturesApi(project(":beam-commons")))
+    testApi(testFixtures(project(":beam-commons")))
 
     testApi(libs.awssdk.s3)
     testApi(libs.testcontainers.junit.jupiter)
