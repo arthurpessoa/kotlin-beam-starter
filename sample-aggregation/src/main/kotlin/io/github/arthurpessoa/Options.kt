@@ -32,7 +32,7 @@ interface MyOptions : PipelineOptions {
     var dbUrl: String
 
     @get:Description("input file")
-    @get:Default.String("s3://mybucket/input/file1.csv")
+    @get:Default.String("s3://mybucket/input/file1")
     var inputFile: String
 
     @get:Description("output file")

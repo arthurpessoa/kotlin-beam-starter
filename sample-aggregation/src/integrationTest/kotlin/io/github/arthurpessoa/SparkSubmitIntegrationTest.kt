@@ -14,6 +14,7 @@ import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.utility.DockerImageName.parse
 import org.testcontainers.utility.MountableFile.forHostPath
 import software.amazon.awssdk.services.s3.S3Client
+import software.amazon.awssdk.services.s3.model.ListObjectsRequest
 import kotlin.test.Test
 
 
@@ -53,7 +54,8 @@ class SparkSubmitIntegrationTest {
     @Test
     fun `should run in a spark container`() {
 
-        s3Client.uploadFile(BUCKET_NAME, "input/file1.csv", "src/test/resources/file1.csv")
+        s3Client.uploadFile(BUCKET_NAME, "input/file1_characters.csv", "src/test/resources/file1_characters.csv")
+        s3Client.uploadFile(BUCKET_NAME, "input/file1_movies.csv", "src/test/resources/file1_movies.csv")
 
 
         val array = arrayOf(
@@ -78,6 +80,7 @@ class SparkSubmitIntegrationTest {
         println(result.stdout)
         println(result.stderr)
 
+        println(s3Client.listObjects(ListObjectsRequest.builder().bucket(BUCKET_NAME).build()))
         assertEquals(0, result.exitCode)
     }
 

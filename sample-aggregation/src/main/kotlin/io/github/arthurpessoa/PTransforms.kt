@@ -3,7 +3,9 @@ package io.github.arthurpessoa
 import org.apache.beam.sdk.io.Compression
 import org.apache.beam.sdk.io.TextIO
 import org.apache.beam.sdk.io.jdbc.JdbcIO
+import org.apache.beam.sdk.schemas.transforms.Join
 import org.apache.beam.sdk.transforms.MapElements
+import org.apache.beam.sdk.values.Row
 import org.apache.beam.sdk.values.TypeDescriptor
 import org.apache.beam.sdk.values.TypeDescriptors
 import java.sql.PreparedStatement
@@ -14,19 +16,45 @@ fun readFile(filePattern: String): TextIO.Read =
         .read()
         .from(filePattern)
 
-fun convertToMovieCharacter(): MapElements<String, MovieCharacter> =
+fun mapStringIntoMovie(): MapElements<String, Movie> =
     MapElements
-        .into(TypeDescriptor.of(MovieCharacter::class.java))
+        .into(TypeDescriptor.of(Movie::class.java))
         .via(func { line: String ->
             val (id, name) = line.split(",", ignoreCase = true)
-            MovieCharacter(id.toLong(), name)
+            Movie(id.toLong(), name)
         })
 
-fun convertFromMovieCharacter(): MapElements<MovieCharacter, String> =
+
+fun mapStringIntoCharacter(): MapElements<String, Character> =
+    MapElements
+        .into(TypeDescriptor.of(Character::class.java))
+        .via(func { line: String ->
+            val (id, name) = line.split(",", ignoreCase = true)
+            Character(id.toLong(), name)
+        })
+
+fun mapJoinedRowIntoMovieCharacter(): MapElements<Row, MovieCharacter> =
+    MapElements
+        .into(TypeDescriptor.of(MovieCharacter::class.java))
+        .via(func {
+
+            //TODO: Find a better way to convert Row => Object
+            val characterRow = it.getRow(Join.LHS_TAG)
+            val movieRow = it.getRow(Join.RHS_TAG)
+
+            MovieCharacter(
+                characterRow?.getInt64("id"),
+                characterRow?.getString("name"),
+                movieRow?.getString("name")
+            )
+        })
+
+
+fun mapMovieIntoString(): MapElements<Movie, String> =
     MapElements
         .into(TypeDescriptors.strings())
-        .via(func { movieCharacter: MovieCharacter ->
-            movieCharacter.name
+        .via(func { movie: Movie ->
+            movie.name
         })
 
 
@@ -44,8 +72,9 @@ fun writeToDatabase(options: MyOptions) = JdbcIO.write<MovieCharacter>()
     .withBatchSize(500)
     .withStatement("INSERT into MOVIE_CHARACTER values(?, ?)")
     .withPreparedStatementSetter { movieCharacter: MovieCharacter, statement: PreparedStatement ->
-        statement.setLong(1, movieCharacter.id)
-        statement.setString(2, movieCharacter.name)
+
+        statement.setLong(1, movieCharacter.id!!)
+        statement.setString(2, movieCharacter.characterName!!)
     }
 
 fun writeFile(filenamePrefix: String): TextIO.Write =
