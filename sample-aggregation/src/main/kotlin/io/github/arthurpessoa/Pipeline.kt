@@ -28,7 +28,8 @@ fun main(args: Array<String>) {
             .apply(mapJoinedRowIntoMovieCharacter())
 
     //Save CSV example
-    movies.apply("Convert to String", mapMovieIntoString())
+    movies
+        .apply("Convert to String", mapMovieIntoString())
         .apply("save file", writeFile(options.outputFile))
 
     //Save to database Example
