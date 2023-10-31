@@ -25,6 +25,7 @@ dependencies {
     api(libs.apache.beam.sdks.java.io.jdbc)
     api(libs.apache.beam.sdks.java.core)
 
+    api(project(":beam-commons"))
     api(libs.ojdbc11)
 
     testFixturesApi(libs.testcontainers.oracle.xe)
