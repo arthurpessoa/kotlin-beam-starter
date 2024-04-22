@@ -1,5 +1,5 @@
 [versions]
-apache-beam = "2.51.0"
+apache-beam = "2.55.0"
 awaitility = "4.2.0"
 aws-sdk = "2.21.5"
 junit = "5.9.2"
@@ -16,6 +16,7 @@ ojdbc11 = "23.3.0.23.09"
 apache-beam-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
 apache-beam-runners-direct-java = { group = "org.apache.beam", name = "beam-runners-direct-java", version.ref = "apache-beam" }
 apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
+apache-beam-runners-portability-java = { group = "org.apache.beam", name = "beam-runners-portability-java", version.ref = "apache-beam" }
 apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-jdbc = { group = "org.apache.beam", name = "beam-sdks-java-io-jdbc", version.ref = "apache-beam" }
