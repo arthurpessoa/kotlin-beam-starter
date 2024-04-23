@@ -26,7 +26,7 @@ If you want to clone this repository to start your own project, you can choose t
 ```
 
 ### Source file structure
-This project aims to have a multiple-module/pipeline, to achieve that, every pipeline should be something like this [sample-aggregation](/tree/main/sample-aggregation)
+This project aims to have a multiple-module/pipeline, to achieve that, every pipeline should be something like this [example-spark-runner](/tree/main/example-spark-runner)
 This project have a few files:
 
 * The main `/src/main/kotlin`

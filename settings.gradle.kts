@@ -11,4 +11,4 @@ plugins {
 }
 
 rootProject.name = "kotlin-beam-starter"
-include("beam-commons","sample-aggregation")
+include("beam-commons", "example-spark-runner", "example-portable-flink-runner")

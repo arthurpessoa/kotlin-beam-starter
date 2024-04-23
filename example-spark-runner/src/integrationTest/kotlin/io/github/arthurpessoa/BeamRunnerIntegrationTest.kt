@@ -43,11 +43,6 @@ class SparkSubmitIntegrationTest {
         .withNetwork(network)
         .dependsOn(oracleContainer, localStack)
 
-    /*
-        @Container
-        val kafkaContainer: KafkaContainer = KafkaContainer(parse("confluentinc/cp-kafka:6.2.1"))
-            .withNetwork(network)*/
-
     lateinit var s3Client: S3Client
 
 
@@ -117,7 +112,5 @@ class SparkSubmitIntegrationTest {
                     character_name VARCHAR2(50) NOT NULL
                 )
             """
-
     }
-
 }
