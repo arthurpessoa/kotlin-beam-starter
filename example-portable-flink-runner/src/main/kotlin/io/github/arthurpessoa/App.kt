@@ -1,17 +1,30 @@
 package io.github.arthurpessoa
 
-import io.github.arthurpessoa.option.MovieCharacterOptions
-import io.github.arthurpessoa.pipeline.moviePipeline
 import org.apache.beam.sdk.Pipeline
+import org.apache.beam.sdk.transforms.Create
+import org.apache.beam.sdk.transforms.DoFn
+import org.apache.beam.sdk.transforms.ParDo
+
+class PrintFn<T> : DoFn<T, Void>() {
+    @ProcessElement
+    fun processElement(@Element element: T) {
+        println(element)
+    }
+}
 
 fun main(args: Array<String>) {
-    Pipeline
-        .create(MovieCharacterOptions.buildOptions(args))
-        .apply {
-            moviePipeline()
-        }
-        .run()
+    val create = Pipeline
+        .create()
+
+    create
+        .apply(Create.of(1, 2, 3, 4, 5))
+        .apply(ParDo.of(PrintFn<Int>()))
+
+    create.run()
         .waitUntilFinish()
+
+
+    println("APP FINISHED")
 }
 
 

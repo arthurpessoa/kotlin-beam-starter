@@ -20,7 +20,7 @@ dependencies {
     runtimeOnly(libs.apache.beam.runners.direct.java)
     runtimeOnly(libs.bundles.logback)
 
-    api(libs.apache.beam.runners.spark)
+    api(libs.apache.beam.runners.portability.java)
     api(libs.apache.beam.sdks.java.io.amazon.web.services2)
     api(libs.apache.beam.sdks.java.io.jdbc)
     api(libs.apache.beam.sdks.java.core)
@@ -35,6 +35,8 @@ dependencies {
     testApi(testFixtures(project(":beam-commons")))
 
     testApi(libs.awssdk.s3)
+    testApi(libs.apache.flink.test.utils)
+    testApi(libs.apache.flink.test.utils.junit)
     testApi(libs.testcontainers.junit.jupiter)
     testApi(libs.junit)
     testApi(libs.kotlin.junit)
@@ -65,7 +67,6 @@ sourceSets {
 tasks.named<Test>("test") {
     useJUnitPlatform()
     dependsOn("shadowJar")
-    maxHeapSize = "768m" //TODO: https://github.com/testcontainers/testcontainers-java/issues/4203
 }
 
 val integrationTest = task<Test>("integrationTest") {

@@ -1,5 +1,6 @@
 [versions]
 apache-beam = "2.55.0"
+apache-flink = "1.19.0"
 awaitility = "4.2.0"
 aws-sdk = "2.21.5"
 junit = "5.9.2"
@@ -20,6 +21,8 @@ apache-beam-runners-portability-java = { group = "org.apache.beam", name = "beam
 apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-jdbc = { group = "org.apache.beam", name = "beam-sdks-java-io-jdbc", version.ref = "apache-beam" }
+apache-flink-test-utils = { group = "org.apache.flink", name = "flink-test-utils", version.ref = "apache-flink" }
+apache-flink-test-utils-junit = { group = "org.apache.flink", name = "flink-test-utils-junit", version.ref = "apache-flink" }
 awaitility = { group = "org.awaitility", name = "awaitility", version.ref = "awaitility" }
 awaitility-kotlin = { group = "org.awaitility", name = "awaitility-kotlin", version.ref = "awaitility" }
 awssdk-s3 = { group = "software.amazon.awssdk", name = "s3", version.ref = "aws-sdk" }
