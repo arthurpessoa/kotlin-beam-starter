@@ -4,11 +4,11 @@ package io.github.arthurpessoa
 import org.testcontainers.containers.BindMode
 import org.testcontainers.containers.GenericContainer
 import org.testcontainers.containers.Network
-import org.testcontainers.containers.wait.strategy.LogMessageWaitStrategy
 import org.testcontainers.junit.jupiter.Container
 import org.testcontainers.junit.jupiter.Testcontainers
 import org.testcontainers.utility.DockerImageName.parse
 import kotlin.test.Test
+import kotlin.test.assertEquals
 
 @Testcontainers
 class SparkSubmitIntegrationTest {
@@ -31,20 +31,24 @@ class SparkSubmitIntegrationTest {
         .withCommand("taskmanager")
         .withEnv("FLINK_PROPERTIES", "jobmanager.rpc.address: flink-jobmanager")
         .dependsOn(jobManagerContainer)
+        .withLogConsumer { frame ->
+            println(frame.utf8String)
+        }
 
     @Test
     fun `should run in a flink container`() {
 
-        val execInContainer = jobManagerContainer.execInContainer(
+        val jobExecution = jobManagerContainer.execInContainer(
             "/opt/flink/bin/flink", "run",
             "-m", "flink-jobmanager:8081",
             "-c", "io.github.arthurpessoa.AppKt",
             "/jar/example-portable-flink-runner-all.jar"
         )
-        print(execInContainer.stdout)
-        print(execInContainer.stderr)
 
-        taskManagerContainer.waitingFor(LogMessageWaitStrategy().withRegEx(".*APP FINISHED.*\\s"))
+        println(jobExecution.stdout)
+        println(jobExecution.stderr)
+
+        assertEquals(jobExecution.exitCode, 0)
         println(taskManagerContainer.logs)
     }
 }
