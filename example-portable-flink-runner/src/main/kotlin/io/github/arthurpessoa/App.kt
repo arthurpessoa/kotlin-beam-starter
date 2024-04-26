@@ -12,7 +12,7 @@ class PrintFn<T> : DoFn<T, Void>() {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     val create = Pipeline
         .create()
 

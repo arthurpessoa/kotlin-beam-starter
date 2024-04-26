@@ -1,6 +1,7 @@
 [versions]
 apache-beam = "2.55.0"
 apache-flink = "1.19.0"
+apache-kafka = "3.7.0"
 awaitility = "4.2.0"
 aws-sdk = "2.21.5"
 junit = "5.9.2"
@@ -16,13 +17,15 @@ ojdbc11 = "23.3.0.23.09"
 [libraries]
 apache-beam-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
 apache-beam-runners-direct-java = { group = "org.apache.beam", name = "beam-runners-direct-java", version.ref = "apache-beam" }
-apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
 apache-beam-runners-portability-java = { group = "org.apache.beam", name = "beam-runners-portability-java", version.ref = "apache-beam" }
+apache-beam-runners-spark = { group = "org.apache.beam", name = "beam-runners-spark-3", version.ref = "apache-beam" }
 apache-beam-sdks-java-core = { group = "org.apache.beam", name = "beam-sdks-java-core", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-amazon-web-services2 = { group = "org.apache.beam", name = "beam-sdks-java-io-amazon-web-services2", version.ref = "apache-beam" }
 apache-beam-sdks-java-io-jdbc = { group = "org.apache.beam", name = "beam-sdks-java-io-jdbc", version.ref = "apache-beam" }
+apache-beam-sdks-java-io-kafka = { group = "org.apache.beam", name = "beam-sdks-java-io-kafka", version.ref = "apache-beam" }
 apache-flink-test-utils = { group = "org.apache.flink", name = "flink-test-utils", version.ref = "apache-flink" }
 apache-flink-test-utils-junit = { group = "org.apache.flink", name = "flink-test-utils-junit", version.ref = "apache-flink" }
+apache-kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.ref = "apache-kafka" }
 awaitility = { group = "org.awaitility", name = "awaitility", version.ref = "awaitility" }
 awaitility-kotlin = { group = "org.awaitility", name = "awaitility-kotlin", version.ref = "awaitility" }
 awssdk-s3 = { group = "software.amazon.awssdk", name = "s3", version.ref = "aws-sdk" }
@@ -32,12 +35,12 @@ kafka-clients = { group = "org.apache.kafka", name = "kafka-clients", version.re
 kotlin-junit = { group = "org.jetbrains.kotlin", name = "kotlin-test-junit5", version.ref = "kotlin-junit" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
 logback-core = { group = "ch.qos.logback", name = "logback-core", version.ref = "logback" }
+ojdbc11 = { group = "com.oracle.database.jdbc", name = "ojdbc11", version.ref = "ojdbc11" }
 testcontainers-cassandra = { group = "org.testcontainers", name = "cassandra", version.ref = "testcontainers" }
 testcontainers-junit-jupiter = { group = "org.testcontainers", name = "junit-jupiter", version.ref = "testcontainers" }
 testcontainers-kafka = { group = "org.testcontainers", name = "kafka", version.ref = "testcontainers" }
 testcontainers-localstack = { group = "org.testcontainers", name = "localstack", version.ref = "testcontainers" }
 testcontainers-oracle-xe = { group = "org.testcontainers", name = "oracle-xe", version.ref = "testcontainers" }
-ojdbc11 = { group = "com.oracle.database.jdbc", name = "ojdbc11", version.ref = "ojdbc11" }
 
 [bundles]
 awaitility = ["awaitility-kotlin", "awaitility"]
