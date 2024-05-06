@@ -51,3 +51,4 @@ kotlin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "ko
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
 test-logger = { id = "com.adarshr.test-logger", version.ref = "test-logger" }
+avro = { id = "com.github.davidmc24.gradle.plugin.avro", version = "1.2.0" }

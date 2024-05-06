@@ -1,0 +1,23 @@
+{
+  "type": "record",
+  "name": "PackageOrder",
+  "namespace": "io.github.arthurpessoa",
+  "fields": [
+    {
+      "name": "orderId",
+      "type": "string"
+    },
+    {
+      "name": "customerId",
+      "type": "string"
+    },
+    {
+      "name": "totalPrice",
+      "type": "double"
+    },
+    {
+      "name": "orderDate",
+      "type": "string"
+    }
+  ]
+}

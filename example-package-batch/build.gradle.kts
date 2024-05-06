@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlin.allopen)
     alias(libs.plugins.shadow)
     alias(libs.plugins.test.logger)
+    alias(libs.plugins.avro)
 }
 
 application {
@@ -23,7 +24,7 @@ dependencies {
 
     runtimeOnly(libs.apache.beam.runners.direct.java)
     runtimeOnly(libs.bundles.logback)
-
+    implementation("org.apache.avro:avro:1.11.3")
     api(libs.apache.beam.runners.portability.java)
     api(libs.apache.beam.sdks.java.io.amazon.web.services2)
     api(libs.apache.beam.sdks.java.io.jdbc)
@@ -46,8 +47,12 @@ dependencies {
     testApi(libs.testcontainers.junit.jupiter)
     testApi(libs.junit)
     testApi(libs.kotlin.junit)
-    testApi("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
     testApi(libs.bundles.awaitility)
+}
+
+avro {
+    setFieldVisibility("PRIVATE")
+    isCreateSetters = false
 }
 
 java {
